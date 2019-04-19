@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>js object</title>
+    <style media="screen">
+      body
+      {
+        background: #2c3e50;
+        color: #ecf0f1;
+        margin: 20px 40px;
+        font-size: 25px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="lang"></p>
+    <script>
+      var person =
+      {
+        firstname: "Riju",
+        lastname: "chowdhury",
+        age: 21,
+        unversity: "East West university",
+        language: ["html", "css", "php", "js"],
+        fullname: function() {
+          //document.write(this.firstname+" "+this.lastname);
+          return "Name: "+this.firstname+" "+this.lastname;
+        }
+
+      };
+      document.write(person.fullname());
+      document.write("<br>");
+      document.getElementById("lang").innerHTML = "Language: "+person.language;
+      //person.fullname();
+
+      var info = new Object();
+      info.income = 10000;
+      info.status = 'ok';
+      info.location = 'unknown';
+      console.log(info);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iife</title>
+</head>
+<body>
+    <script>
+        function score() {  // normal fun
+            var scr = Math.random() * 5;
+            console.log(scr >= 3);
+        }
+        score();
+
+        (function (check) {     // iife
+            var scr = Math.floor(Math.random() * 10);
+            console.log(scr  - check);
+         })(5);
+    </script>
+</body>
+</html>

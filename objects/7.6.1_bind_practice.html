@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bind practice</title>
+</head>
+<body>
+    <script>
+        // bind practice
+        // ---------------
+
+        var allAge = [1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003];
+        function calcAge(age, fn) {
+            var finalAge = [];
+            for (let i = 0; i < age.length; i++) {
+                finalAge.push(fn(age[i]));
+            }
+
+            return finalAge;
+        }
+
+        function ageSub(a) {
+            return 2018 - a;
+        }
+
+        function checkAge(l, e) {
+            return e >= l;
+        }
+
+        var allAges = calcAge(allAge, ageSub);
+        var greaterEqual = calcAge(allAges, checkAge.bind(this, 17));
+        console.log(allAges);
+        console.log(greaterEqual);
+    </script>
+</body>
+</html>

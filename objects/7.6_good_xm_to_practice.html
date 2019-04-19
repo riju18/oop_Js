@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>practice</title>
+</head>
+<body>
+    <script>
+        (function () { 
+            function allQueAns(que, ans, corr) {
+                this.question = que,
+                this.answer = ans,
+                this.correct = corr
+            }
+            allQueAns.prototype.displayQue = function () {
+                console.log(this.question);
+                for (let i = 0; i < this.answer.length; i++) {
+                    console.log(i + ': ' + this.answer[i]);
+                }
+            }
+
+            allQueAns.prototype.corrAns = function (an, callback) {
+                var sc;
+                if (an === this.correct) {
+                    console.log('correct :-)');
+                    sc = callback(true);
+                } else {
+                    console.log('incorrect :-(');
+                    sc = callback(false);
+                }
+                this.displayScore(sc);
+            }
+
+            allQueAns.prototype.displayScore = function (sc) {
+                console.log('your score: ' + sc);
+            }
+
+            const q1 = new allQueAns('Is js the most finest language', ['yes', 'no'], 0);
+            const q2 = new allQueAns('Is js the most cool language for multi purpose', ['yes', 'no'], 0);
+            const q3 = new allQueAns('what node js is used for', ['frontend', 'backend', 'both'], 2);
+
+            var questions = [q1, q2, q3];
+
+            function score() {
+                var sc = 0;
+                return function (corr) {
+                    if (corr) {
+                        sc++;
+                    }
+                    return sc;
+                }
+            }
+            var keppScore = score();
+            // que-ans part
+            // ------------
+            function queOneByOne() {
+                var randomQue = Math.floor(Math.random() * questions.length);
+                questions[randomQue].displayQue();
+
+                var answr = prompt('select the correct answer: ');
+                if (answr !== 'exit') {
+                    questions[randomQue].corrAns(parseInt(answr), keppScore);
+                    setTimeout(queOneByOne, 2000);
+                }
+            }
+            queOneByOne();
+         })();
+    </script>
+</body>
+</html>

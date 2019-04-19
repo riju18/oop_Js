@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>encapsulation</title>
+</head>
+<body>
+    <script>
+        // very important for data security
+        // -------------------------------
+
+        var budgetControll = (function () { 
+            var x = 5;                      // can't be accessed from outside
+            var addSum = function (a) {     // can't be accessed from outside
+                return a + x;
+             }
+            return {                        // can be accessed from outside
+                showPublicaly: function () { 
+                    return addSum(5);
+                 }
+            }
+         })();
+
+         var control = (function (budgtControl) {        // it can control other modules
+            console.log(budgtControl.showPublicaly());
+          })(budgetControll);
+
+    </script>
+</body>
+</html>

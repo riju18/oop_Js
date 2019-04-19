@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>apply,call,bind</title>
+</head>
+<body>
+
+    // apply,call,bind
+    # ----------------
+    
+    <script>
+        var person = {
+            name: 'nik',
+            job : 'developer',
+            experience: 20,
+            summary: function (style, time) { 
+                if (style == 'formal') {
+                    console.log(this.name + ' ' + 'is a ' + this.job + ' with ' + this.experience + ' years experience & office hour 8.30-3.00 & ' + 'working time is '+ time );
+                }else if(style == 'casual'){
+                     console.log(this.name + ' ' + 'is a ' + this.job + ' with ' + this.experience + ' years experience & office hour 10.00-5.00 & ' + 'working time is ' + time );
+                }
+             }
+        };
+        var joli = {
+           name: 'angela',
+            job: 'manager',
+            experience: 10,  
+        }
+        person.summary('casual', 'night');
+        person.summary.call(joli, 'formal', 'morning');  // call method
+
+        // won't work bcz the summary method doesn't accept an array
+        // ---------------------------------------------------------
+
+        // person.summary.apply(joli, ['formal', 'morning']);
+
+        var personnik = person.summary.bind(person, 'formal');  // bind
+        personnik('night');
+
+        // 'bind' creates a copy so that we can store it somewhere else
+        // -----------------------------------------------------------
+
+        
+        var joiliPerson = person.summary.bind(joli, 'casual');
+        joiliPerson('morning');
+    </script>
+</body>
+</html>

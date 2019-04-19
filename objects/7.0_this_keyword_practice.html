@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this keyword practive</title>
+</head>
+<body>
+    <script>
+        var Riju = {
+            name      : 'riju',
+            birthDate :1996,
+            overview  :function(){
+                console.log(this);
+                console.log(2019-this.birthDate);
+            }
+        }
+
+        var person = {
+            name      : 'alen',
+            birthDate : 1990
+        }
+
+        person.overview = Riju.overview;
+        person.overview();
+    </script>
+</body>
+</html>

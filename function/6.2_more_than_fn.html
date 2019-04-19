@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fn</title>
+</head>
+<body>
+    <script>
+        var ages = [1990, 1965, 1937, 2001, 1998];
+        function arrayCalc(ageArr, fn) {
+            var allAge = [];
+            for (let i = 0; i < ageArr.length; i++) {
+                allAge.push(fn(ageArr[i]));
+            }
+            return allAge;
+        }
+        function ageCal(a) {
+            return 2018 - a;
+        }
+        function fullAge(b) {
+            return b >= 18;
+        }
+        var personAge = arrayCalc(ages, ageCal);
+        var isFullAge = arrayCalc(personAge, fullAge);
+        console.log(personAge);
+        console.log(isFullAge);
+    </script>
+</body>
+</html>
