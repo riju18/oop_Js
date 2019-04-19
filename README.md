@@ -1,4 +1,5 @@
 # oop_Js
+# closure:
 #  ![2](https://user-images.githubusercontent.com/18087611/56434641-3c529500-62f7-11e9-9a4c-4fd16051a147.JPG)
 #  ![3](https://user-images.githubusercontent.com/18087611/56434642-3ceb2b80-62f7-11e9-81ad-40d93ebc9773.JPG)
 #  ![4](https://user-images.githubusercontent.com/18087611/56434643-3ceb2b80-62f7-11e9-8e30-2e9178982261.JPG)
